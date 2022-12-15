@@ -118,6 +118,8 @@ estimateSizeFactors <- function(featureCounts,
 .calculateNormalizationByMedian <- function(featureCounts, spikeinCounts){
     labeled <- subset(spikeinCounts, labelingState == 'L')
     lc <- assay(labeled)
+    unlabeled <- subset(spikeinCounts, labelingState == 'U')
+    uc <- assay(unlabeled)
     colData(featureCounts)$sizeFactor <- apply(lc / rowSums(lc), 2, median)
     colData(featureCounts)$crossContamination <- colSums(uc)/colSums(lc)
     colData(featureCounts)$crossContamination[colData(featureCounts)$LT == "T"] <- 1
