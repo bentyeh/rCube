@@ -82,11 +82,11 @@
     # ## empty results object code by LEO in estimate...Kinetics.R
     # ## createRResultCubeRates(featureCounts, replicate)
     rRates <- createRResultCubeRatesExtended(featureCounts, replicate)
-    assay(rRates[, rRates$rate == 'synthesis']) <- matrix(res$synthesis, nrow=length(genes), ncol=length(unique(conditions))*length(replicate), byrow=TRUE)
-    assay(rRates[, rRates$rate == 'degradation']) <- matrix(res$degradation, nrow=length(genes), ncol=length(unique(conditions))*length(replicate), byrow=TRUE)
-    assay(rRates[, rRates$rate == 'half.life']) <- matrix(res$half.life, nrow=length(genes), ncol=length(unique(conditions))*length(replicate), byrow=TRUE)
-    assay(rRates[, rRates$rate == 'labeled.amount']) <- matrix(res$labeledAmount, nrow=length(genes), ncol=length(unique(conditions))*length(replicate), byrow=TRUE)
-    assay(rRates[, rRates$rate == 'unlabeled.amount']) <- matrix(res$unlabeledAmount, nrow=length(genes), ncol=length(unique(conditions))*length(replicate), byrow=TRUE)
+    assay(rRates[, rRates$rate == 'synthesis'], withDimnames=FALSE) <- matrix(res$synthesis, nrow=length(genes), ncol=length(unique(conditions))*length(replicate), byrow=TRUE)
+    assay(rRates[, rRates$rate == 'degradation'], withDimnames=FALSE) <- matrix(res$degradation, nrow=length(genes), ncol=length(unique(conditions))*length(replicate), byrow=TRUE)
+    assay(rRates[, rRates$rate == 'half.life'], withDimnames=FALSE) <- matrix(res$half.life, nrow=length(genes), ncol=length(unique(conditions))*length(replicate), byrow=TRUE)
+    assay(rRates[, rRates$rate == 'labeled.amount'], withDimnames=FALSE) <- matrix(res$labeledAmount, nrow=length(genes), ncol=length(unique(conditions))*length(replicate), byrow=TRUE)
+    assay(rRates[, rRates$rate == 'unlabeled.amount'], withDimnames=FALSE) <- matrix(res$unlabeledAmount, nrow=length(genes), ncol=length(unique(conditions))*length(replicate), byrow=TRUE)
     
     return(rRates)
 }

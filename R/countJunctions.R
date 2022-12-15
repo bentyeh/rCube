@@ -56,7 +56,7 @@ countJunctions <- function(experimentalSetup, scanBamParam=Rsamtools::ScanBamPar
     {
         s <- subset(experimentalSetup, typ == 'junction', filename == fn)
         assays(experimentalSetup[rowRanges(experimentalSetup)$typ == 'junction',
-                                experimentalSetup[['filename']] == fn])[['counts']] <- 
+                                experimentalSetup[['filename']] == fn], withDimnames=FALSE)[['counts']] <- 
             as.matrix(merge(rowRanges(s), resByFilename[[fn]], all.x=TRUE)$count, ncol=1)
     }
     
@@ -93,7 +93,7 @@ countJunctions <- function(experimentalSetup, scanBamParam=Rsamtools::ScanBamPar
         }
         assays(experimentalSetup[rowRanges(experimentalSetup)$typ == 'donor' | 
                                 rowRanges(experimentalSetup)$typ == 'acceptor', 
-                                experimentalSetup[['filename']] == fn])[['counts']] <- as.matrix(counts, ncol=1)
+                                experimentalSetup[['filename']] == fn], withDimnames=FALSE)[['counts']] <- as.matrix(counts, ncol=1)
     }
     
     # Zero out NA lines.

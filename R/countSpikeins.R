@@ -24,7 +24,7 @@ countSpikeins <- function(experimentalSetup, scanBamParam=Rsamtools::ScanBamPara
         }
         
         counts <- .countSpike(bamFile=fn, region=region, scanBamParam=scanBamParam, BPPARAM)
-        assays(experimentalSetup[, experimentalSetup[['filename']] == fn])[['counts']] <- as.matrix(counts, ncol=1)
+        assays(experimentalSetup[, experimentalSetup[['filename']] == fn], withDimnames=FALSE)[['counts']] <- as.matrix(counts, ncol=1)
     }
     return(experimentalSetup) 
 }

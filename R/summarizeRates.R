@@ -36,7 +36,7 @@ summarizeRates <- function(featureRates, topLevelFeatures, by=c('mean', 'median'
     }
     res <- t(sapply(unique(subjectHits(ov)), mergeRates, rates=rates, ov=ov, 
                     by=by))
-    assay(mergedRates)[unique(subjectHits(ov)), ] <- res
+    assay(mergedRates, withDimnames=FALSE)[unique(subjectHits(ov)), ] <- res
     
     return(mergedRates)
 }
