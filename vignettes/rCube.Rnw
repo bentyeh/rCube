@@ -178,7 +178,7 @@ The estimation of RNA metabolism rates is wrapped in the
 
 Both methods perform maximum-likelihood (ML) estimations, assuming negative binomial read distributions, with random initialization.
 
-The estimation of these rates relies on a random initialization. To make the results more robust, it is possible to run multiple iterations of the algorithm with random initialization and the median of the resulting rates is returned. The default number of iterations is 3. To change this value, the \Robject{numberOfInterations} in the \Robject{elementMetadata} of the \Rclass{rCubeExperiment} object has to be set:
+The estimation of these rates relies on a random initialization. To make the results more robust, it is possible to run multiple iterations of the algorithm with random initialization and the median of the resulting rates is returned. The default number of iterations is 3. To change this value, the \Robject{numberOfIterations} in the \Robject{elementMetadata} of the \Rclass{rCubeExperiment} object has to be set:
 
 <<NumberofIterations, eval=FALSE>>==
 elementMetadata(featureCounts)$numberOfIterations <- 10
@@ -408,7 +408,7 @@ After estimating size factor and cross-contamination rates per sample (see Secti
 
 Let's set the number of iterations to 7 to yield more robust results:
 <<NumberOfIterations, echo=TRUE, eval=TRUE>>=
-elementMetadata(exonCounts)$numberOfInterations <- 7
+elementMetadata(exonCounts)$numberOfIterations <- 7
 @
 
 In the following example, we will obtain individual results for replicate 1 and 2 and also results for a joint estimation.

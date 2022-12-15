@@ -38,7 +38,7 @@
 #' exonCounts <- estimateSizeDispersions(exonCounts, method='DESeqDispMAP')
 #' 
 #' ## set number of iterations for random initialization
-#' elementMetadata(exonCounts)$numberOfInterations <- 1
+#' elementMetadata(exonCounts)$numberOfIterations <- 1
 #' 
 #' ## estimate synthesis and degradation rates for individual replicates and combination
 #' rates <- estimateRateByFirstOrderKinetics(exonCounts, replicate=c(1, 2, "1:2"),
